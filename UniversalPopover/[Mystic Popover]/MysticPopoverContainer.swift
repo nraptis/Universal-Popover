@@ -31,6 +31,7 @@ class MysticPopoverContainer: UIView {
         result.layer.cornerRadius = 12.0
         result.backgroundColor = UIColor.red.withAlphaComponent(0.65)
         result.translatesAutoresizingMaskIntoConstraints = false
+        result.isUserInteractionEnabled = false
         return result
     }()
     
@@ -118,7 +119,7 @@ extension MysticPopoverContainer: UIGestureRecognizerDelegate {
     
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         let position = gestureRecognizer.location(in: self)
-        if sourceView.frame.contains(position) {
+        if viewController.view.frame.contains(position) {
             print("Out of Frame, SB!!!")
             return false
         } else {
@@ -129,7 +130,7 @@ extension MysticPopoverContainer: UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let position = touch.location(in: self)
-        if sourceView.frame.contains(position) {
+        if viewController.view.frame.contains(position) {
             print("Out of Frame, TOUCH!!!")
             return false
         } else {
