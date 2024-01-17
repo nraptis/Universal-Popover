@@ -19,7 +19,7 @@ struct SwiftUIContentContainer: View {
                                     getButton(x: x, y: y, geometry: geometry)
                                 }
                             }
-                            .background(RoundedRectangle(cornerRadius: 10.0).foregroundColor(Color(red: 0.77, green: 0.77, blue: 0.77)))
+                            .background(RoundedRectangle(cornerRadius: 10.0).foregroundColor(Color(red: 0.22, green: 0.22, blue: 0.22)))
                             .padding(.all, 8.0)
                         }
                         
@@ -42,7 +42,7 @@ struct SwiftUIContentContainer: View {
         } else {
             width = 420.0
         }
-        let height = CGFloat(220.0)
+        let height = CGFloat(200.0)
         
         RootViewController.shared.updateMysticalPopover(identifier: hash,
                                                         geometry: geometry)
@@ -51,19 +51,34 @@ struct SwiftUIContentContainer: View {
         viewController.view.backgroundColor = UIColor.clear
         
         return Button(action: {
-            RootViewController.shared.showMysticalPopover(identifier: hash,
-                                                          geometry: geometry,
-                                                          offset: 20.0,
-                                                          viewController: viewController,
-                                                          contentWidth: width,
-                                                          contentHeight: height)
+            
+            if y > 1 {
+                
+                RootViewController.shared.showMysticalPopover(identifier: hash,
+                                                              geometry: geometry,
+                                                              offset: 6.0,
+                                                              viewController: viewController,
+                                                              contentWidth: width,
+                                                              contentHeight: height,
+                                                              side: .left,
+                                                              arrowPosition: .middle)
+            } else {
+                RootViewController.shared.showMysticalPopover(identifier: hash,
+                                                              geometry: geometry,
+                                                              offset: 6.0,
+                                                              viewController: viewController,
+                                                              contentWidth: width,
+                                                              contentHeight: height,
+                                                              side: .right,
+                                                              arrowPosition: .middle)
+            }
         }, label: {
             VStack {
                 Spacer()
                 HStack {
                     Spacer()
                     Image(systemName: "person.crop.circle")
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
                         .font(.system(size: 40))
                     Spacer()
                 }

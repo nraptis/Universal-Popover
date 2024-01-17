@@ -16,7 +16,7 @@ struct PopoverContentView: View {
         VStack(spacing: 0.0) {
             
             Button(action: {
-                print("A happened!")
+                
             }, label: {
                 HStack {
                     HStack {
@@ -107,6 +107,7 @@ struct PopoverContentView: View {
             
         }
         .frame(width: width, height: height)
-        .background(Rectangle().foregroundColor(.pink))
+        //.background(RoundedRectangle(cornerRadius: 60.0).stroke().foregroundColor(.pink))
+        
     }
 }

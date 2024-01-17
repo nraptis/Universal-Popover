@@ -210,7 +210,9 @@ class RootViewController: UIViewController {
                              offset: CGFloat,
                              viewController: UIViewController,
                              contentWidth: CGFloat,
-                             contentHeight: CGFloat) {
+                             contentHeight: CGFloat,
+                             side: MysticPopoverBubbleView.Side,
+                             arrowPosition: MysticPopoverBubbleView.ArrowPosition) {
         if let mysticPopoverContainer = mysticPopoverContainer {
             mysticPopoverContainer.layer.removeAllAnimations()
             mysticPopoverContainer.removeFromSuperview()
@@ -224,7 +226,9 @@ class RootViewController: UIViewController {
                                                              offset: offset,
                                                              viewController: viewController,
                                                              contentWidth: contentWidth,
-                                                             contentHeight: contentHeight)
+                                                             contentHeight: contentHeight,
+                                                             side: side,
+                                                             arrowPosition: arrowPosition)
         if let view = view {
             _mysticPopoverContainer.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(_mysticPopoverContainer)
