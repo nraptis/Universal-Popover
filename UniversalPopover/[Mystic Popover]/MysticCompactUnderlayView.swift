@@ -32,10 +32,11 @@ struct MysticCompactUnderlayView: View {
         
         .background(RoundedCorner(radius: MysticPopoverBubbleConstants.cornerRadius)
             .foregroundStyle(.regularMaterial)
-            .colorScheme(.dark))
+            .colorScheme(.dark)
+            .shadow(color: .black.opacity(0.36), radius: 16.0, x: 0.0, y: 0.0))
         .background(RoundedCorner(radius: MysticPopoverBubbleConstants.cornerRadius)
-            .stroke()
-            .foregroundStyle(Color(red: 0.125, green: 0.125, blue: 0.125)))
+            .stroke(lineWidth: 2.0)
+            .foregroundStyle(Color(red: 0.42, green: 0.42, blue: 0.42)))
         .ignoresSafeArea(.all)
     }
 }

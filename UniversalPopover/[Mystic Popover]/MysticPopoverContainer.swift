@@ -230,6 +230,35 @@ class MysticPopoverContainer: UIView {
                     NSLayoutConstraint(item: viewControllerView, attribute: .centerY, relatedBy: .equal, toItem: contentContainer, attribute: .centerY, multiplier: 1.0, constant: 0.0)
                 ])
             }
+            
+            let animationStartOffset: CGFloat
+            switch side {
+            case .left:
+                
+                animationStartOffset = (contentWidth / 2.0) + offset
+                //contentContainer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
+            case .right:
+                animationStartOffset = (-contentWidth / 2.0) - offset
+                //contentContainer.anchorPoint = CGPoint(x: 1.0, y: 0.5)
+            }
+            
+            var startTransform = CGAffineTransform.identity
+            startTransform = CGAffineTransformTranslate(startTransform, animationStartOffset, 0.0)
+            startTransform = CGAffineTransformScale(startTransform, 0.05, 0.05)
+            
+            self.contentContainer.transform = startTransform
+            viewController.view.alpha = 0.0
+            
+            UIView.animate(withDuration: 0.44, delay: 0.0, usingSpringWithDamping: contentWidth / 2.0, initialSpringVelocity: contentWidth / 16.0) {
+                self.contentContainer.transform = CGAffineTransform.identity
+                self.viewController.view.alpha = 1.0
+            }
+            
+            UIView.animate(withDuration: 0.6, delay: 0.0, animations: {
+                
+            }) { _ in
+                
+            }
         } else {
             
             

@@ -35,10 +35,11 @@ struct MysticPopoverBubbleView: View {
                 }
                 .background(MysticPopoverBubbleRight(arrowPosition: arrowPosition)
                     .foregroundStyle(.regularMaterial)
-                    .colorScheme(.dark))
+                    .colorScheme(.dark)
+                    .shadow(color: .black.opacity(0.36), radius: 16.0, x: 0.0, y: 0.0))
                 .background(MysticPopoverBubbleRight(arrowPosition: arrowPosition)
-                    .stroke()
-                    .foregroundStyle(Color(red: 0.125, green: 0.125, blue: 0.125)))
+                    .stroke(lineWidth: 2.0)
+                    .foregroundStyle(Color(red: 0.42, green: 0.42, blue: 0.42)))
             case .right:
                 VStack {
                     Spacer()
@@ -48,10 +49,11 @@ struct MysticPopoverBubbleView: View {
                 }
                 .background(MysticPopoverBubbleLeft(arrowPosition: arrowPosition)
                     .foregroundStyle(.regularMaterial)
-                    .colorScheme(.dark))
+                    .colorScheme(.dark)
+                    .shadow(color: .black.opacity(0.36), radius: 16.0, x: 0.0, y: 0.0))
                 .background(MysticPopoverBubbleLeft(arrowPosition: arrowPosition)
-                    .stroke()
-                    .foregroundStyle(Color(red: 0.125, green: 0.125, blue: 0.125)))
+                    .stroke(lineWidth: 2.0)
+                    .foregroundStyle(Color(red: 0.42, green: 0.42, blue: 0.42)))
             }
         }
     }
