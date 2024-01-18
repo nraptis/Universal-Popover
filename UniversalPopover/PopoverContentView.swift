@@ -106,7 +106,9 @@ struct PopoverContentView: View {
             })
             
         }
-        .frame(width: width, height: height)
+        //.frame(width: width, height: height)
+        .frame(height: height)
+        
         //.background(RoundedRectangle(cornerRadius: 60.0).stroke().foregroundColor(.pink))
         
     }

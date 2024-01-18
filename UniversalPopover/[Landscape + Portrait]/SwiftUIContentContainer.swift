@@ -42,7 +42,7 @@ struct SwiftUIContentContainer: View {
         } else {
             width = 420.0
         }
-        let height = CGFloat(200.0)
+        let height = CGFloat(180.0)
         
         RootViewController.shared.updateMysticalPopover(identifier: hash,
                                                         geometry: geometry)

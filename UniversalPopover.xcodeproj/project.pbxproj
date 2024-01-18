@@ -11,6 +11,7 @@
 		95D88DED2B577BAF0008F5A1 /* MysticPopoverBubbleLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D88DEA2B577BAF0008F5A1 /* MysticPopoverBubbleLeft.swift */; };
 		95D88DEE2B577BAF0008F5A1 /* MysticPopoverBubbleRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D88DEB2B577BAF0008F5A1 /* MysticPopoverBubbleRight.swift */; };
 		95D88DF02B577CD30008F5A1 /* MysticPopoverBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D88DEF2B577CD30008F5A1 /* MysticPopoverBubbleView.swift */; };
+		95F817912B58A69B00BD9965 /* MysticCompactUnderlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F817902B58A69B00BD9965 /* MysticCompactUnderlayView.swift */; };
 		E8F527782B548EC400044E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8F527772B548EC400044E0E /* Assets.xcassets */; };
 		E8F5277B2B548EC400044E0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8F527792B548EC400044E0E /* LaunchScreen.storyboard */; };
 		E8F527902B54901900044E0E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F527842B54901900044E0E /* RootViewController.swift */; };
@@ -34,6 +35,7 @@
 		95D88DEA2B577BAF0008F5A1 /* MysticPopoverBubbleLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MysticPopoverBubbleLeft.swift; sourceTree = "<group>"; };
 		95D88DEB2B577BAF0008F5A1 /* MysticPopoverBubbleRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MysticPopoverBubbleRight.swift; sourceTree = "<group>"; };
 		95D88DEF2B577CD30008F5A1 /* MysticPopoverBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MysticPopoverBubbleView.swift; sourceTree = "<group>"; };
+		95F817902B58A69B00BD9965 /* MysticCompactUnderlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MysticCompactUnderlayView.swift; sourceTree = "<group>"; };
 		E8F5276B2B548EC300044E0E /* UniversalPopover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniversalPopover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F527772B548EC400044E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8F5277A2B548EC400044E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				95D88DEB2B577BAF0008F5A1 /* MysticPopoverBubbleRight.swift */,
 				95D88DEF2B577CD30008F5A1 /* MysticPopoverBubbleView.swift */,
 				E8F527AA2B549CE700044E0E /* MysticPopoverContainer.swift */,
+				95F817902B58A69B00BD9965 /* MysticCompactUnderlayView.swift */,
 			);
 			path = "[Mystic Popover]";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F817912B58A69B00BD9965 /* MysticCompactUnderlayView.swift in Sources */,
 				95D88DEC2B577BAF0008F5A1 /* MysticPopoverBubbleConstants.swift in Sources */,
 				E8F527942B54901900044E0E /* Orientation.swift in Sources */,
 				E8F527A82B54996B00044E0E /* SwiftUIContentContainer.swift in Sources */,

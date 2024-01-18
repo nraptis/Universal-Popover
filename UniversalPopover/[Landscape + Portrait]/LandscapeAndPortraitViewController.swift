@@ -51,7 +51,8 @@ class LandscapeAndPortraitViewController: UIViewController {
         if Device.isPad {
             return [.portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight]
         } else {
-            return [.portrait]
+            return [.portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight]
+            //return [.portrait]
         }
         
         

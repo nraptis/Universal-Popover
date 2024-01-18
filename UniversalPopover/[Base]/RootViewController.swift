@@ -245,15 +245,10 @@ class RootViewController: UIViewController {
     
     func updateMysticalPopover(identifier: String,
                                geometry: GeometryProxy) {
-        
-        if let mysticPopoverContainer = mysticPopoverContainer {
+        if let mysticPopoverContainer = mysticPopoverContainer, mysticPopoverContainer.identifier == identifier {
             let sourceRect = geometry.frame(in: .global)
             mysticPopoverContainer.update(sourceRect: sourceRect)
         }
-        
-        
-        
-        
     }
     
     func hideMysticalPopover() {
