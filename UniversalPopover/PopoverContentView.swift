@@ -2,7 +2,7 @@
 //  PopoverContentView.swift
 //  UniversalPopover
 //
-//  Created by Nicky Taylor on 1/14/24.
+//  Created by Dr. Handsome on 1/14/24.
 //
 
 import SwiftUI
@@ -20,11 +20,11 @@ struct PopoverContentView: View {
             }, label: {
                 HStack {
                     HStack {
-                        Text("Button A")
+                        Text("Michel Bergeron")
                             .font(.system(size: 24.0).bold())
                             .foregroundColor(.white)
                         Spacer()
-                        Image(systemName: "trash")
+                        Image(systemName: "figure.stand.line.dotted.figure.stand")
                             .font(.system(size: 24.0).bold())
                             .foregroundColor(.white)
                     }
@@ -38,14 +38,14 @@ struct PopoverContentView: View {
             }, label: {
                 HStack {
                     HStack {
-                        Text("Button B")
+                        Text("Dave Durazzani")
                             .font(.system(size: 24.0).bold())
                             .foregroundColor(.white)
                         Spacer()
-                        Image(systemName: "trash")
+                        Image(systemName: "figure.american.football")
                             .font(.system(size: 24.0).bold())
                             .foregroundColor(.white)
-                        Image(systemName: "trash")
+                        Image(systemName: "figure.equestrian.sports")
                             .font(.system(size: 24.0).bold())
                             .foregroundColor(.white)
                     }
@@ -59,17 +59,17 @@ struct PopoverContentView: View {
             }, label: {
                 HStack {
                     HStack {
-                        Text("Button C")
+                        Text("Berzzani")
                             .font(.system(size: 24.0).bold())
                             .foregroundColor(.white)
                         Spacer()
-                        Image(systemName: "trash")
+                        Image(systemName: "cloud.bolt.rain.fill")
                             .font(.system(size: 24.0).bold())
                             .foregroundColor(.white)
-                        Image(systemName: "trash")
+                        Image(systemName: "cloud.moon.fill")
                             .font(.system(size: 24.0).bold())
                             .foregroundColor(.white)
-                        Image(systemName: "trash")
+                        Image(systemName: "snowflake.slash")
                             .font(.system(size: 24.0).bold())
                             .foregroundColor(.white)
                     }
@@ -79,28 +79,14 @@ struct PopoverContentView: View {
             })
             
             Button(action: {
-                RootViewController.shared.hideMysticalPopover {
-                    print("Hid!")
-                }
+                RootViewController.shared.hideMysticalPopover()
             }, label: {
                 HStack {
                     HStack {
                         Text("Cancel")
                             .font(.system(size: 24.0).bold())
-                            .foregroundColor(.white)
+                            .foregroundColor(.gray)
                         Spacer()
-                        Image(systemName: "trash")
-                            .font(.system(size: 24.0).bold())
-                            .foregroundColor(.white)
-                        Image(systemName: "trash")
-                            .font(.system(size: 24.0).bold())
-                            .foregroundColor(.white)
-                        Image(systemName: "trash")
-                            .font(.system(size: 24.0).bold())
-                            .foregroundColor(.white)
-                        Image(systemName: "trash")
-                            .font(.system(size: 24.0).bold())
-                            .foregroundColor(.white)
                     }
                     .padding(.horizontal, 16.0)
                     .padding(.vertical, 6.0)
@@ -108,10 +94,6 @@ struct PopoverContentView: View {
             })
             
         }
-        //.frame(width: width, height: height)
         .frame(height: height)
-        
-        //.background(RoundedRectangle(cornerRadius: 60.0).stroke().foregroundColor(.pink))
-        
     }
 }

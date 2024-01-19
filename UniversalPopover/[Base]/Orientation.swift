@@ -2,7 +2,7 @@
 //  Orientation.swift
 //  Invisible Cyclopse
 //
-//  Created by Nicky Taylor on 11/8/23.
+//  Created by Dr. Handsome on 11/8/23.
 //
 
 import UIKit

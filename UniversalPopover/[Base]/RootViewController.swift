@@ -2,7 +2,7 @@
 //  RootViewController.swift
 //  Invisible Cyclopse
 //
-//  Created by Nicky Taylor on 11/8/23.
+//  Created by Dr. Handsome on 11/8/23.
 //
 
 import UIKit
@@ -204,15 +204,16 @@ class RootViewController: UIViewController {
     }
     
     
-    var mysticPopoverContainer: MysticPopoverContainer?
+    private var mysticPopoverContainer: MysticPopoverContainer?
     @MainActor func showMysticalPopover(identifier: String,
-                             geometry: GeometryProxy,
-                             offset: CGFloat,
-                             viewController: UIViewController,
-                             contentWidth: CGFloat,
-                             contentHeight: CGFloat,
-                             side: MysticPopoverBubbleView.Side,
-                             arrowPosition: MysticPopoverBubbleView.ArrowPosition) {
+                                        geometry: GeometryProxy,
+                                        offset: CGFloat,
+                                        viewController: UIViewController,
+                                        contentWidth: CGFloat,
+                                        contentHeight: CGFloat,
+                                        side: MysticPopoverBubbleView.Side,
+                                        arrowPosition: MysticPopoverBubbleView.ArrowPosition) {
+        
         if let mysticPopoverContainer = mysticPopoverContainer {
             mysticPopoverContainer.layer.removeAllAnimations()
             mysticPopoverContainer.removeFromSuperview()
@@ -253,7 +254,7 @@ class RootViewController: UIViewController {
     
     private var _hideMysticalPopoverCompletionHandlers = [(() -> Void)]()
     private var _isHisingMysticalPopover = false
-    @MainActor func hideMysticalPopover(completion: (() -> Void)?) {
+    @MainActor func hideMysticalPopover(completion: (() -> Void)? = nil) {
         if let mysticPopoverContainer = mysticPopoverContainer {
             
             if let completion = completion {
@@ -278,7 +279,5 @@ class RootViewController: UIViewController {
         } else {
             completion?()
         }
-        
     }
-    
 }

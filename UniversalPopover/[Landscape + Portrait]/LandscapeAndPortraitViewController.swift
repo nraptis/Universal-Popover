@@ -1,8 +1,8 @@
 //
-//  LandscapeAndPortraitViewController.swift
-//  OrientatonToggleFlow
+//  Orientation.swift
+//  Invisible Cyclopse
 //
-//  Created by Nicky Taylor on 11/8/23.
+//  Created by Dr. Handsome on 11/8/23.
 //
 
 import UIKit
@@ -51,11 +51,8 @@ class LandscapeAndPortraitViewController: UIViewController {
         if Device.isPad {
             return [.portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight]
         } else {
-            return [.portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight]
-            //return [.portrait]
+            return [.portrait]
         }
-        
-        
     }
     
 }

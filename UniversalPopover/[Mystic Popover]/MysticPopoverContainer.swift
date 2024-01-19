@@ -1,8 +1,8 @@
 //
-//  MysicPopoverContainer.swift
-//  UniversalPopover
+//  Orientation.swift
+//  Invisible Cyclopse
 //
-//  Created by Nicky Taylor on 1/14/24.
+//  Created by Dr. Handsome on 11/8/23.
 //
 
 import UIKit
@@ -18,6 +18,11 @@ class MysticPopoverContainer: UIView {
     let contentHeight: CGFloat
     let side: MysticPopoverBubbleView.Side
     let arrowPosition: MysticPopoverBubbleView.ArrowPosition
+    
+    // This is just to prevent bottom of the backing view from having
+    // an empty space if the spring animation extends above the very
+    // bottom of the screen...
+    private static let compactBufferHeight = CGFloat(24.0)
     
     lazy var tapGestureRecognizer: UITapGestureRecognizer = {
         let result = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
@@ -58,12 +63,9 @@ class MysticPopoverContainer: UIView {
     }
     
     lazy var contentContainer: UIView = {
-        
         if Self.isLargeScreen {
-            
             let result = UIView(frame: .zero)
             result.translatesAutoresizingMaskIntoConstraints = false
-            
             if let bubbleView = popoverBubbleHostingController.view {
                 result.addSubview(bubbleView)
                 result.addConstraints([
@@ -86,7 +88,6 @@ class MysticPopoverContainer: UIView {
         } else {
             let result = UIView(frame: .zero)
             result.translatesAutoresizingMaskIntoConstraints = false
-            
             if let underlayView = popoverUnderlayHostingController.view {
                 result.addSubview(underlayView)
                 result.addConstraints([
@@ -101,7 +102,8 @@ class MysticPopoverContainer: UIView {
                                        multiplier: 1.0, constant: 0.0),
                     NSLayoutConstraint(item: underlayView, attribute: .bottom,
                                        relatedBy: .equal, toItem: result, attribute: .bottom, 
-                                       multiplier: 1.0, constant: 0.0)
+                                       multiplier: 1.0, constant: Self.compactBufferHeight)
+                    
                 ])
             }
             return result
@@ -172,18 +174,15 @@ class MysticPopoverContainer: UIView {
         super.init(frame: .zero)
         
         if Self.isLargeScreen {
-            
             addSubview(sourceView)
             sourceView.addConstraints([
                 sourceViewConstraintWidth,
                 sourceViewConstraintHeight
             ])
-            
             addConstraints([
                 sourceViewConstraintX,
                 sourceViewConstraintY,
             ])
-            
             addSubview(contentContainer)
             
             switch side {
@@ -309,6 +308,24 @@ class MysticPopoverContainer: UIView {
                 
                 addConstraint(NSLayoutConstraint(item: contentContainer, attribute: .top, relatedBy: .equal, toItem: viewControllerView, attribute: .top, multiplier: 1.0, constant: 0.0))
             }
+            
+            animationStartTransform = CGAffineTransform.identity
+            animationStartTransform = CGAffineTransformTranslate(animationStartTransform, 0.0, contentHeight + safeAreaInsets.bottom)
+            //animationStartTransform = CGAffineTransformScale(animationStartTransform, 0.05, 0.05)
+            
+            self.contentContainer.transform = animationStartTransform
+            
+            UIView.animate(withDuration: 0.44, delay: 0.0, usingSpringWithDamping: contentWidth / 2.0, initialSpringVelocity: contentWidth / 16.0) {
+                self.contentContainer.transform = CGAffineTransform.identity
+                
+            }
+            
+            UIView.animate(withDuration: 0.6, delay: 0.0, animations: {
+                
+            }) { _ in
+                
+            }
+            
         }
         
         

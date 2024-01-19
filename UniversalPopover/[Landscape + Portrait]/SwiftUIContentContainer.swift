@@ -1,8 +1,8 @@
 //
-//  SwiftUIContentContainer.swift
-//  UniversalPopover
+//  Orientation.swift
+//  Invisible Cyclopse
 //
-//  Created by Nicky Taylor on 1/14/24.
+//  Created by Dr. Handsome on 11/8/23.
 //
 
 import SwiftUI
@@ -36,21 +36,27 @@ struct SwiftUIContentContainer: View {
         
         let hash = "x_\(x)_y_\(y)_id_\(x + y * 4)_xyz"
         
-        let width: CGFloat
-        if Device.isPhone {
-            width = ApplicationController.widthPortrait
-        } else {
-            width = 420.0
-        }
-        let height = CGFloat(180.0)
+        
         
         RootViewController.shared.updateMysticalPopover(identifier: hash,
                                                         geometry: geometry)
         
-        let viewController = UIHostingController(rootView: PopoverContentView(width: width, height: height))
-        viewController.view.backgroundColor = UIColor.clear
+        //
+        
+        //viewController.view.backgroundColor = UIColor.blue
         
         return Button(action: {
+            
+            let width: CGFloat
+            if Device.isPhone {
+                width = ApplicationController.widthPortrait
+            } else {
+                width = 420.0
+            }
+            let height = CGFloat(180.0)
+            
+            let viewController = UIHostingController(rootView: PopoverContentView(width: width, height: height))
+            viewController.view.backgroundColor = .clear
             
             if y > 1 {
                 
@@ -63,6 +69,7 @@ struct SwiftUIContentContainer: View {
                                                               side: .left,
                                                               arrowPosition: .middle)
             } else {
+                
                 RootViewController.shared.showMysticalPopover(identifier: hash,
                                                               geometry: geometry,
                                                               offset: 6.0,
