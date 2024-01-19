@@ -32,7 +32,7 @@ struct SwiftUIContentContainer: View {
         }
     }
     
-    func getButton(x: Int, y: Int, geometry: GeometryProxy) -> some View {
+    @MainActor func getButton(x: Int, y: Int, geometry: GeometryProxy) -> some View {
         
         let hash = "x_\(x)_y_\(y)_id_\(x + y * 4)_xyz"
         

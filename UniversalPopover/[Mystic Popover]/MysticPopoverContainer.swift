@@ -30,8 +30,6 @@ class MysticPopoverContainer: UIView {
     
     lazy var sourceView: UIView = {
         let result = UIView(frame: .zero)
-        result.layer.cornerRadius = 12.0
-        result.backgroundColor = UIColor.red.withAlphaComponent(0.65)
         result.translatesAutoresizingMaskIntoConstraints = false
         result.isUserInteractionEnabled = false
         return result
@@ -43,7 +41,6 @@ class MysticPopoverContainer: UIView {
         result.view.translatesAutoresizingMaskIntoConstraints = false
         return result
     }()
-    
     
     lazy var popoverUnderlayHostingController: UIHostingController<MysticCompactUnderlayView> = {
         var result = UIHostingController(rootView: MysticCompactUnderlayView())
@@ -67,14 +64,21 @@ class MysticPopoverContainer: UIView {
             let result = UIView(frame: .zero)
             result.translatesAutoresizingMaskIntoConstraints = false
             
-            
             if let bubbleView = popoverBubbleHostingController.view {
                 result.addSubview(bubbleView)
                 result.addConstraints([
-                    NSLayoutConstraint(item: bubbleView, attribute: .left, relatedBy: .equal, toItem: result, attribute: .left, multiplier: 1.0, constant: 0.0),
-                    NSLayoutConstraint(item: bubbleView, attribute: .right, relatedBy: .equal, toItem: result, attribute: .right, multiplier: 1.0, constant: 0.0),
-                    NSLayoutConstraint(item: bubbleView, attribute: .top, relatedBy: .equal, toItem: result, attribute: .top, multiplier: 1.0, constant: 0.0),
-                    NSLayoutConstraint(item: bubbleView, attribute: .bottom, relatedBy: .equal, toItem: result, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+                    NSLayoutConstraint(item: bubbleView, attribute: .left, 
+                                       relatedBy: .equal, toItem: result, attribute: .left, 
+                                       multiplier: 1.0, constant: 0.0),
+                    NSLayoutConstraint(item: bubbleView, attribute: .right,
+                                       relatedBy: .equal, toItem: result, attribute: .right, 
+                                       multiplier: 1.0, constant: 0.0),
+                    NSLayoutConstraint(item: bubbleView, attribute: .top,
+                                       relatedBy: .equal, toItem: result, attribute: .top, 
+                                       multiplier: 1.0, constant: 0.0),
+                    NSLayoutConstraint(item: bubbleView, attribute: .bottom,
+                                       relatedBy: .equal, toItem: result, attribute: .bottom, 
+                                       multiplier: 1.0, constant: 0.0)
                 ])
             }
             
@@ -86,10 +90,18 @@ class MysticPopoverContainer: UIView {
             if let underlayView = popoverUnderlayHostingController.view {
                 result.addSubview(underlayView)
                 result.addConstraints([
-                    NSLayoutConstraint(item: underlayView, attribute: .left, relatedBy: .equal, toItem: result, attribute: .left, multiplier: 1.0, constant: 0.0),
-                    NSLayoutConstraint(item: underlayView, attribute: .right, relatedBy: .equal, toItem: result, attribute: .right, multiplier: 1.0, constant: 0.0),
-                    NSLayoutConstraint(item: underlayView, attribute: .top, relatedBy: .equal, toItem: result, attribute: .top, multiplier: 1.0, constant: 0.0),
-                    NSLayoutConstraint(item: underlayView, attribute: .bottom, relatedBy: .equal, toItem: result, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+                    NSLayoutConstraint(item: underlayView, attribute: .left, 
+                                       relatedBy: .equal, toItem: result, attribute: .left, 
+                                       multiplier: 1.0, constant: 0.0),
+                    NSLayoutConstraint(item: underlayView, attribute: .right,
+                                       relatedBy: .equal, toItem: result, attribute: .right, 
+                                       multiplier: 1.0, constant: 0.0),
+                    NSLayoutConstraint(item: underlayView, attribute: .top,
+                                       relatedBy: .equal, toItem: result, attribute: .top, 
+                                       multiplier: 1.0, constant: 0.0),
+                    NSLayoutConstraint(item: underlayView, attribute: .bottom,
+                                       relatedBy: .equal, toItem: result, attribute: .bottom, 
+                                       multiplier: 1.0, constant: 0.0)
                 ])
             }
             return result
@@ -99,68 +111,46 @@ class MysticPopoverContainer: UIView {
     lazy var contentContainerCompactSafeAreaPaddingViewBottom: UIView = {
         let result = UIView(frame: .zero)
         result.translatesAutoresizingMaskIntoConstraints = false
-        //result.backgroundColor = UIColor.orange.withAlphaComponent(0.25)
-        //result.layer.cornerRadius = 16.0
-        //result.clipsToBounds = true
         return result
     }()
     
     lazy var contentContainerCompactSafeAreaPaddingViewLeft: UIView = {
         let result = UIView(frame: .zero)
         result.translatesAutoresizingMaskIntoConstraints = false
-        //result.backgroundColor = UIColor.yellow.withAlphaComponent(0.25)
-        //result.layer.cornerRadius = 16.0
-        //result.clipsToBounds = true
         return result
     }()
     
     lazy var contentContainerCompactSafeAreaPaddingViewRight: UIView = {
         let result = UIView(frame: .zero)
         result.translatesAutoresizingMaskIntoConstraints = false
-        //result.backgroundColor = UIColor.blue.withAlphaComponent(0.25)
-        //result.layer.cornerRadius = 16.0
-        //result.clipsToBounds = true
         return result
     }()
     
     lazy var sourceViewConstraintX: NSLayoutConstraint = {
-        NSLayoutConstraint(item: sourceView,
-                           attribute: .left,
-                           relatedBy: .equal,
-                           toItem: self,
-                           attribute: .left,
-                           multiplier: 1.0,
-                           constant: sourceRect.minX)
+        NSLayoutConstraint(item: sourceView, attribute: .left, relatedBy: .equal,
+                           toItem: self, attribute: .left,
+                           multiplier: 1.0, constant: sourceRect.minX)
     }()
     
     lazy var sourceViewConstraintY: NSLayoutConstraint = {
-        NSLayoutConstraint(item: sourceView,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: self,
-                           attribute: .top,
-                           multiplier: 1.0,
-                           constant: sourceRect.minY)
+        NSLayoutConstraint(item: sourceView, attribute: .top, relatedBy: .equal,
+                           toItem: self, attribute: .top,
+                           multiplier: 1.0, constant: sourceRect.minY)
     }()
     
     lazy var sourceViewConstraintWidth: NSLayoutConstraint = {
-        NSLayoutConstraint(item: sourceView,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1.0,
-                           constant: sourceRect.width)
+        NSLayoutConstraint(item: sourceView, attribute: .width, relatedBy: .equal,
+                           toItem: nil, attribute: .notAnAttribute,
+                           multiplier: 1.0, constant: sourceRect.width)
     }()
     
     lazy var sourceViewConstraintHeight: NSLayoutConstraint = {
-        NSLayoutConstraint(item: sourceView,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
+        NSLayoutConstraint(item: sourceView, attribute: .height, relatedBy: .equal,
+                           toItem: nil, attribute: .notAnAttribute,
                            multiplier: 1.0, constant: sourceRect.height)
     }()
+    
+    private var animationStartTransform = CGAffineTransformIdentity
     
     init(identifier: String,
          sourceRect: CGRect,
@@ -242,11 +232,11 @@ class MysticPopoverContainer: UIView {
                 //contentContainer.anchorPoint = CGPoint(x: 1.0, y: 0.5)
             }
             
-            var startTransform = CGAffineTransform.identity
-            startTransform = CGAffineTransformTranslate(startTransform, animationStartOffset, 0.0)
-            startTransform = CGAffineTransformScale(startTransform, 0.05, 0.05)
+            animationStartTransform = CGAffineTransform.identity
+            animationStartTransform = CGAffineTransformTranslate(animationStartTransform, animationStartOffset, 0.0)
+            animationStartTransform = CGAffineTransformScale(animationStartTransform, 0.05, 0.05)
             
-            self.contentContainer.transform = startTransform
+            self.contentContainer.transform = animationStartTransform
             viewController.view.alpha = 0.0
             
             UIView.animate(withDuration: 0.44, delay: 0.0, usingSpringWithDamping: contentWidth / 2.0, initialSpringVelocity: contentWidth / 16.0) {
@@ -319,29 +309,6 @@ class MysticPopoverContainer: UIView {
                 
                 addConstraint(NSLayoutConstraint(item: contentContainer, attribute: .top, relatedBy: .equal, toItem: viewControllerView, attribute: .top, multiplier: 1.0, constant: 0.0))
             }
-            
-            
-            
-            
-            /*
-            contentContainer.addConstraints([
-                NSLayoutConstraint(item: contentContainer, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: contentWidth + MysticPopoverBubbleConstants.inset + MysticPopoverBubbleConstants.inset),
-                NSLayoutConstraint(item: contentContainer, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: contentHeight + MysticPopoverBubbleConstants.inset + MysticPopoverBubbleConstants.inset),
-            ])
-            
-            addConstraints([
-                NSLayoutConstraint(item: contentContainer, attribute: .centerY, relatedBy: .equal, toItem: sourceView, attribute: .centerY, multiplier: 1.0, constant: 0.0)
-            ])
-            
-            
-            
-            
-            contentContainerCompactSafeAreaPaddingViewLeft
-            contentContainerCompactSafeAreaPaddingViewRight
-            
-            */
-            
-            
         }
         
         
@@ -362,8 +329,21 @@ class MysticPopoverContainer: UIView {
     }
     
     @objc func didTap(_ tapGestureRecognizer: UITapGestureRecognizer) -> Void {
-        RootViewController.shared.hideMysticalPopover()
+        RootViewController.shared.hideMysticalPopover {
+            print("Hid #\(Int.random(in: 0...100))")
+        }
     }
+    
+    func animateOut(completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.44, delay: 0.0, usingSpringWithDamping: contentWidth / 6.0, initialSpringVelocity: contentWidth / 32.0, animations: {
+            self.contentContainer.transform = self.animationStartTransform
+            self.contentContainer.alpha = 0.0
+            self.viewController.view.alpha = 0.0
+        }) { _ in
+            completion()
+        }
+    }
+    
 }
 
 extension MysticPopoverContainer: UIGestureRecognizerDelegate {

@@ -205,7 +205,7 @@ class RootViewController: UIViewController {
     
     
     var mysticPopoverContainer: MysticPopoverContainer?
-    func showMysticalPopover(identifier: String,
+    @MainActor func showMysticalPopover(identifier: String,
                              geometry: GeometryProxy,
                              offset: CGFloat,
                              viewController: UIViewController,
@@ -243,7 +243,7 @@ class RootViewController: UIViewController {
         mysticPopoverContainer = _mysticPopoverContainer
     }
     
-    func updateMysticalPopover(identifier: String,
+    @MainActor func updateMysticalPopover(identifier: String,
                                geometry: GeometryProxy) {
         if let mysticPopoverContainer = mysticPopoverContainer, mysticPopoverContainer.identifier == identifier {
             let sourceRect = geometry.frame(in: .global)
@@ -251,12 +251,32 @@ class RootViewController: UIViewController {
         }
     }
     
-    func hideMysticalPopover() {
-        
+    private var _hideMysticalPopoverCompletionHandlers = [(() -> Void)]()
+    private var _isHisingMysticalPopover = false
+    @MainActor func hideMysticalPopover(completion: (() -> Void)?) {
         if let mysticPopoverContainer = mysticPopoverContainer {
-            mysticPopoverContainer.layer.removeAllAnimations()
-            mysticPopoverContainer.removeFromSuperview()
-            self.mysticPopoverContainer = nil
+            
+            if let completion = completion {
+                _hideMysticalPopoverCompletionHandlers.append(completion)
+            }
+            if !_isHisingMysticalPopover {
+                _isHisingMysticalPopover = true
+                
+                mysticPopoverContainer.animateOut {
+                    
+                    mysticPopoverContainer.layer.removeAllAnimations()
+                    mysticPopoverContainer.removeFromSuperview()
+                    self.mysticPopoverContainer = nil
+                    
+                    for hideMysticalPopoverCompletionHandler in self._hideMysticalPopoverCompletionHandlers {
+                        hideMysticalPopoverCompletionHandler()
+                    }
+                    self._hideMysticalPopoverCompletionHandlers.removeAll(keepingCapacity: true)
+                    self._isHisingMysticalPopover = false
+                }
+            }
+        } else {
+            completion?()
         }
         
     }

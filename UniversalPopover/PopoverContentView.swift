@@ -79,7 +79,9 @@ struct PopoverContentView: View {
             })
             
             Button(action: {
-                RootViewController.shared.hideMysticalPopover()
+                RootViewController.shared.hideMysticalPopover {
+                    print("Hid!")
+                }
             }, label: {
                 HStack {
                     HStack {
